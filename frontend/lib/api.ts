@@ -1,4 +1,6 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const API_URL = "https://kaamchahiye.onrender.com/";
+// const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 
 export interface User {
   id: string;
@@ -41,7 +43,7 @@ class ApiClient {
     options: RequestInit = {}
   ): Promise<T> {
     const token = this.getToken();
-    
+
     // Build headers object - always include Content-Type for JSON requests
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
@@ -49,7 +51,7 @@ class ApiClient {
     };
 
     if (token) {
-        // @ts-ignore
+      // @ts-ignore
       headers['Authorization'] = `Bearer ${token}` as string;
     }
 
